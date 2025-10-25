@@ -11,9 +11,9 @@ export class ScriberrJwtApi implements ICredentialType {
 
     displayName = 'Scriberr JWT API';
 
-    icon: Icon = { light: 'file:../icons/github.svg', dark: 'file:../icons/github.dark.svg' };
-
     documentationUrl = 'https://scriberr.app/api.html';
+
+    icon: Icon = { light: 'file:../icons/scriberr.svg', dark: 'file:../icons/scriberr.dark.svg' };
 
     properties: INodeProperties[] = [
         {
@@ -39,7 +39,7 @@ export class ScriberrJwtApi implements ICredentialType {
         type: 'generic',
         properties: {
             headers: {
-                Authorization: '=Bearer {{$credentials.accessToken}}',
+                Authorization: '={{"Bearer " + $credentials.accessToken}}',
             },
         },
     };

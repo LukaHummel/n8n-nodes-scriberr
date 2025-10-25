@@ -11,9 +11,9 @@ export class ScriberrApiKeyApi implements ICredentialType {
 
     displayName = 'Scriberr API Key API';
 
-    icon: Icon = { light: 'file:../icons/github.svg', dark: 'file:../icons/github.dark.svg' };
-
     documentationUrl = 'https://scriberr.app/api.html';
+
+    icon: Icon = { light: 'file:../icons/scriberr.svg', dark: 'file:../icons/scriberr.dark.svg' };
 
     properties: INodeProperties[] = [
         {

@@ -3,8 +3,8 @@
     "displayName": "Scriberr",
     "name": "scriberr",
     "icon": {
-      "light": "file:../../icons/github.svg",
-      "dark": "file:../../icons/github.dark.svg"
+      "light": "file:../../icons/scriberr.svg",
+      "dark": "file:../../icons/scriberr.dark.svg"
     },
     "group": ["input"],
     "version": 1,
