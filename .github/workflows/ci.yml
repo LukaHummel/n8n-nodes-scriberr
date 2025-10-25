@@ -28,20 +28,28 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
 
       - name: Install dependencies
-        run: 'npm ci'
+        run: npm ci
 
       - name: Run lint
-        run: 'npm run lint'
+        run: npm run lint
 
       - name: Run build
-        run: 'npm run build'
+        run: npm run build
 
-      - name: Configure Git
-        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-
+  release:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # For git operations
+      id-token: write # < REQUIRED FOR OIDC
+    steps:
+      - uses: actions/checkout
+      - uses: actions/setup-node
+        with:
+          node-version: 'lts/*'
+          registry-url: 'https://registry.npmjs.org'
+      - run: npm install -g npm@latest
+      - run: npm ci
       - name: Release
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         run: npm run release --ci
