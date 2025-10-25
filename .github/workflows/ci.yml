@@ -61,7 +61,7 @@ jobs:
 
       - name: Release (subsequent versions)
         if: github.event_name == 'push' && github.ref == 'refs/heads/main' && steps.npm-check.outputs.exists == 'true'
-        run: npm run release -- --ci
+        run: npm run release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_CONFIG_PROVENANCE: true
