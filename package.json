@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Scriberr nodes for n8n: transcriptions, notes, chat, and summary APIs.",
   "license": "MIT",
-  "homepage": "https://n8n.io",
+  "homepage": "https://github.com/LukaHummel/n8n-nodes-scriberr/",
   "keywords": [
     "n8n-community-node-package"
   ],
@@ -13,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/LukaHummel/n8n-nodes-scriberr"
+    "url": "https://github.com/LukaHummel/n8n-nodes-scriberr.git"
   },
   "main": "index.js",
   "scripts": {
