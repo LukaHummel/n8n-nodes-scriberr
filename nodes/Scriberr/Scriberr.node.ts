@@ -321,6 +321,7 @@ export class Scriberr implements INodeType {
  				type: 'options',
  				noDataExpression: true,
  				displayOptions: { show: { resource: ['apiKey'] } },
+ 				hint: 'API Key operations require JWT (Bearer Token) authentication, not API Key authentication. Please use JWT authentication method.',
 	 				options: [
 	 					{
 	 						name: 'Create',
@@ -384,6 +385,7 @@ export class Scriberr implements INodeType {
  				type: 'options',
  				noDataExpression: true,
  				displayOptions: { show: { resource: ['auth'] } },
+ 				hint: 'Change Password and Change Username operations require JWT (Bearer Token) authentication',
 	 				options: [
 	 					{
 	 						name: 'Change Password',
@@ -521,6 +523,7 @@ export class Scriberr implements INodeType {
  				type: 'options',
  				noDataExpression: true,
  				displayOptions: { show: { resource: ['llm'] } },
+ 				hint: 'LLM configuration operations require JWT (Bearer Token) authentication',
 	 				options: [
 	 					{
 	 						name: 'Get Config',

@@ -1,9 +1,9 @@
 import type {
     IAuthenticateGeneric,
-    Icon,
     ICredentialTestRequest,
     ICredentialType,
     INodeProperties,
+    Icon,
 } from 'n8n-workflow';
 
 export class ScriberrJwtApi implements ICredentialType {
@@ -20,10 +20,17 @@ export class ScriberrJwtApi implements ICredentialType {
             displayName: 'Base URL',
             name: 'baseUrl',
             type: 'string',
-            default: 'https://scriberr.app',
-            placeholder: 'e.g. https://scriberr.app or http://localhost:8080',
+            default: 'http://localhost:8080',
+            placeholder: 'http://localhost:8080',
             description:
-                'Base URL of your Scriberr instance (without trailing slash). Defaults to the hosted service.'
+                'Base URL of your Scriberr instance (without trailing slash). Defaults to localhost.'
+        },
+        {
+            displayName: 'How to get JWT Token',
+            name: 'jwtInstructions',
+            type: 'notice',
+            default: '',
+            description: 'To get a JWT token: Use Scriberr node with Resource=Auth, Operation=Login. Enter your username/password, run the workflow, then copy the "accessToken" from the output and paste it below.'
         },
         {
             displayName: 'Access Token',

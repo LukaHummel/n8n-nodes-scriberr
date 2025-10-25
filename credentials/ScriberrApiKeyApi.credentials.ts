@@ -20,10 +20,10 @@ export class ScriberrApiKeyApi implements ICredentialType {
             displayName: 'Base URL',
             name: 'baseUrl',
             type: 'string',
-            default: 'https://scriberr.app',
-            placeholder: 'e.g. https://scriberr.app or http://localhost:8080',
+            default: 'http://localhost:8080',
+            placeholder: 'http://localhost:8080',
             description:
-                'Base URL of your Scriberr instance (without trailing slash). Defaults to the hosted service.'
+                'Base URL of your Scriberr instance (without trailing slash). Defaults to localhost.'
         },
         {
             displayName: 'API Key',
