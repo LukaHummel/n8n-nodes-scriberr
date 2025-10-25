@@ -8,8 +8,8 @@
 		"n8n-community-node-package"
 	],
 	"author": {
-		"name": "n8n Community",
-		"email": "opensource@example.com"
+		"name": "Luka Hummel",
+		"email": "luka@hummel.email"
 	},
 	"repository": {
 		"type": "git",
@@ -29,7 +29,7 @@
 	],
 	"n8n": {
 		"n8nNodesApiVersion": 1,
-		"strict": true,
+		"strict": false,
 		"credentials": [
 			"dist/credentials/GithubIssuesApi.credentials.js",
 			"dist/credentials/GithubIssuesOAuth2Api.credentials.js",
