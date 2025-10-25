@@ -44,7 +44,7 @@ jobs:
 
       - name: Release
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-        run: npm run release -- --ci
+        run: 'npm run release --ci'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_CONFIG_PROVENANCE: true
