@@ -1,25 +1,14 @@
-![Scriberr banner](https://user-images.githubusercontent.com/10284570/173569848-c624317f-42b1-45a6-ab09-f0ea3c247648.png)
-
 # n8n-nodes-scriberr
 
 This repository contains an n8n community node that integrates with the Scriberr API — an audio transcription, summarization, notes, and chat service.
 
 The node is implemented in the declarative style and exposes resources for Transcription, Summary, Note, Chat, Profile, Admin, API keys, Auth, Health, and LLM configuration.
 
-Quick links
-- Node file: `nodes/Scriberr/Scriberr.node.ts`
-- Credentials: `credentials/ScriberrApiKeyApi.credentials.ts`, `credentials/ScriberrJwtApi.credentials.ts`
+[n8n](https://n8n.io/) is a [fair-code licensed](https://docs.n8n.io/reference/license/) workflow automation platform.
 
 ## Installation
 
-Install dependencies and start the development server with hot reload:
-
-```bash
-npm install
-npm run dev
-```
-
-This starts n8n with the node loaded (usually at http://localhost:5678) so you can test workflows in the UI.
+Follow the [installation guide](https://docs.n8n.io/integrations/community-nodes/installation/) in the n8n community nodes documentation.
 
 ## Operations
 
@@ -60,6 +49,10 @@ How to obtain a JWT
 1. Use the node's `Auth` → `Login` operation with username/password to receive a JWT access token.
 2. Paste that token into a `Scriberr JWT API` credential and save.
 
+## Compatibility
+
+Tested on n8n 1.116.2
+
 ## Quick usage / testing
 
 1. Health check (no auth required): Resource `Health` → `Health Check`
@@ -69,18 +62,6 @@ How to obtain a JWT
 
 Tip: ensure `baseUrl` is set to your instance URL (no trailing slash) and that you're using the correct credential for the selected operation.
 
-## Compatibility
-
-- Minimum n8n version: tested with n8n 1.x (use latest stable for best compatibility)
-
-## Development scripts
-
--| Script | Description |
--|--------|-------------|
--| `npm run dev` | Start n8n with hot reload (use for local testing) |
--| `npm run build` | Compile TypeScript to JavaScript (dist/) |
--| `npm run lint` | Run linter checks |
--| `npm run lint:fix` | Auto-fix lintable issues |
 
 ## Troubleshooting
 
@@ -92,8 +73,8 @@ Tip: ensure `baseUrl` is set to your instance URL (no trailing slash) and that y
 
 ## Resources
 
-- Scriberr API docs: https://scriberr.app/api.html
-- Node implementation: `nodes/Scriberr/Scriberr.node.ts`
+* Scriberr API docs: https://scriberr.app/api.html
+* [n8n community nodes documentation](https://docs.n8n.io/integrations/#community-nodes)
 
 ## Contributing
 
