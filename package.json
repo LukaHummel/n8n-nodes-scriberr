@@ -1,19 +1,19 @@
 {
-	"name": "n8n-nodes-<...>",
+	"name": "n8n-nodes-scriberr",
 	"version": "0.1.0",
-	"description": "",
+	"description": "Scriberr nodes for n8n: transcriptions, notes, chat, and summary APIs.",
 	"license": "MIT",
 	"homepage": "",
 	"keywords": [
 		"n8n-community-node-package"
 	],
 	"author": {
-		"name": "",
-		"email": ""
+		"name": "n8n Community",
+		"email": "opensource@example.com"
 	},
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/<...>/n8n-nodes-<...>.git"
+		"url": "https://github.com/your-org/n8n-nodes-scriberr.git"
 	},
 	"scripts": {
 		"build": "n8n-node build",
@@ -32,15 +32,18 @@
 		"strict": true,
 		"credentials": [
 			"dist/credentials/GithubIssuesApi.credentials.js",
-			"dist/credentials/GithubIssuesOAuth2Api.credentials.js"
+			"dist/credentials/GithubIssuesOAuth2Api.credentials.js",
+			"dist/credentials/ScriberrApiKeyApi.credentials.js",
+			"dist/credentials/ScriberrJwtApi.credentials.js"
 		],
 		"nodes": [
 			"dist/nodes/GithubIssues/GithubIssues.node.js",
-			"dist/nodes/Example/Example.node.js"
+			"dist/nodes/Example/Example.node.js",
+			"dist/nodes/Scriberr/Scriberr.node.js"
 		]
 	},
 	"devDependencies": {
-		"@n8n/node-cli": "*",
+		"@n8n/node-cli": "^0.13.0",
 		"eslint": "9.32.0",
 		"prettier": "3.6.2",
 		"release-it": "^19.0.4",
