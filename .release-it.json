@@ -1,0 +1,24 @@
+{
+  "github": {
+    "release": true,
+    "releaseName": "Release ${version}",
+    "releaseNotes": null
+  },
+  "git": {
+    "commitMessage": "Release ${version}",
+    "tagName": "v${version}",
+    "push": true,
+    "requireBranch": "main"
+  },
+  "npm": {
+    "publish": true,
+    "skipChecks": true,
+    "publishConfig": {
+      "provenance": true
+    }
+  },
+  "hooks": {
+    "before:init": ["npm run lint", "npm run build"],
+    "after:bump": "npm run build"
+  }
+}
