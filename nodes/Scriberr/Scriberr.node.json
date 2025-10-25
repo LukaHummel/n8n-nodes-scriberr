@@ -1,0 +1,33 @@
+{
+  "node": {
+    "displayName": "Scriberr",
+    "name": "scriberr",
+    "icon": {
+      "light": "file:../../icons/github.svg",
+      "dark": "file:../../icons/github.dark.svg"
+    },
+    "group": ["input"],
+    "version": 1,
+    "subtitle": "={{$parameter[\"operation\"] + \": \" + $parameter[\"resource\"]}}",
+    "description": "Interact with the Scriberr API (transcriptions, notes, chat, summary)",
+    "defaults": { "name": "Scriberr" }
+  },
+  "codex": {
+    "categories": ["AI", "Productivity"],
+    "subcategories": {
+      "AI": ["Text"],
+      "Productivity": ["Content"]
+    },
+    "resources": {
+      "primaryDocumentation": [
+        { "url": "https://scriberr.app/api.html" }
+      ],
+      "apIs": [
+        { "url": "https://scriberr.app/api.html" }
+      ],
+      "community": []
+    },
+    "alias": ["Scribber", "Scriberr.ai"],
+    "video": []
+  }
+}

@@ -4,7 +4,7 @@ export class Scriberr implements INodeType {
 	description: INodeTypeDescription = {
 	 		displayName: 'Scriberr',
  		name: 'scriberr',
-	 		icon: { light: 'file:../../icons/github.svg', dark: 'file:../../icons/github.dark.svg' },
+	 		icon: 'file:scriberr.svg',
  		group: ['input'],
  		version: 1,
  		subtitle: '={{$parameter["operation"] + ": " + $parameter["resource"]}}',
@@ -34,6 +34,7 @@ export class Scriberr implements INodeType {
  			},
  		],
  		requestDefaults: {
+ 			baseURL: '={{$parameter.host}}',
  			headers: {
  				Accept: 'application/json',
  				'Content-Type': 'application/json',
