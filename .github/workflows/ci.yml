@@ -42,9 +42,26 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-      - name: Release
+      - name: Check if package exists on npm
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-        run: 'npm run release --ci'
+        id: npm-check
+        run: |
+          if npm view n8n-nodes-scriberr > /dev/null 2>&1; then
+            echo "exists=true" >> $GITHUB_OUTPUT
+          else
+            echo "exists=false" >> $GITHUB_OUTPUT
+          fi
+        continue-on-error: true
+
+      - name: Initial publish (first time only)
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main' && steps.npm-check.outputs.exists == 'false'
+        run: npm publish
+        env:
+          NPM_CONFIG_PROVENANCE: true
+
+      - name: Release (subsequent versions)
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main' && steps.npm-check.outputs.exists == 'true'
+        run: npm run release -- --ci
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_CONFIG_PROVENANCE: true
