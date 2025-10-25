@@ -1,11 +1,16 @@
 {
   "name": "n8n-nodes-scriberr",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Scriberr nodes for n8n: transcriptions, notes, chat, and summary APIs.",
   "license": "MIT",
   "homepage": "https://n8n.io",
-  "keywords": ["n8n-community-node-package"],
-  "author": { "name": "Luka Hummel", "email": "luka@hummel.email" },
+  "keywords": [
+    "n8n-community-node-package"
+  ],
+  "author": {
+    "name": "Luka Hummel",
+    "email": "luka@hummel.email"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/LukaHummel/n8n-nodes-scriberr"
@@ -20,7 +25,9 @@
     "release": "n8n-node release",
     "prepublishOnly": "n8n-node prerelease"
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "n8n": {
     "n8nNodesApiVersion": 1,
     "strict": true,
@@ -28,7 +35,9 @@
       "dist/credentials/ScriberrApiKeyApi.credentials.js",
       "dist/credentials/ScriberrJwtApi.credentials.js"
     ],
-    "nodes": ["dist/nodes/Scriberr/Scriberr.node.js"]
+    "nodes": [
+      "dist/nodes/Scriberr/Scriberr.node.js"
+    ]
   },
   "devDependencies": {
     "@n8n/node-cli": "^0.13.0",
@@ -37,5 +46,7 @@
     "release-it": "^19.0.4",
     "typescript": "5.9.2"
   },
-  "peerDependencies": { "n8n-workflow": "*" }
+  "peerDependencies": {
+    "n8n-workflow": "*"
+  }
 }
