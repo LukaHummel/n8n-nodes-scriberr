@@ -6,11 +6,6 @@ on:
     branches:
       - main
 
-permissions:
-  contents: write
-  pull-requests: write
-  id-token: write # Required for npm provenance and OIDC
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -35,26 +30,3 @@ jobs:
 
       - name: Run build
         run: npm run build
-
-  release:
-    needs: build
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write # For git operations
-      id-token: write # Required for npm provenance and OIDC
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-          token: ${{ secrets.GITHUB_TOKEN }}
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 'lts/*'
-          registry-url: 'https://registry.npmjs.org'
-      - run: npm install -g npm@latest
-      - run: npm ci
-      - name: Release
-        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-        run: npm run release --ci
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
