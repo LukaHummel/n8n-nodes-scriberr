@@ -1,6 +1,6 @@
 {
   "name": "n8n-nodes-scriberr",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Scriberr nodes for n8n: transcriptions, notes, chat, and summary APIs.",
   "license": "MIT",
   "homepage": "https://github.com/LukaHummel/n8n-nodes-scriberr/",
