@@ -2,31 +2,50 @@ name: CI
 
 on:
   pull_request:
+    branches: [ main ]
+    types: [ opened, synchronize, reopened, ready_for_review ]
   push:
-    branches:
-      - main
+    branches: [ main ]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+env:
+  CI: true
 
 jobs:
-  build:
+  lint_build:
+    name: Lint, Typecheck, Build (Node 22)
     runs-on: ubuntu-latest
+    timeout-minutes: 20
+    if: github.event_name != 'pull_request' || !github.event.pull_request.draft
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Use Node.js
+      - name: Use Node.js 22
         uses: actions/setup-node@v4
         with:
           node-version: '22'
-          registry-url: 'https://registry.npmjs.org'
+          cache: 'npm'
+          cache-dependency-path: |
+            package-lock.json
 
       - name: Install dependencies
         run: npm ci
 
       - name: Run lint
-        run: npm run lint
+        run: npm run lint --if-present
 
-      - name: Run build
+      - name: Typecheck
+        run: npm run typecheck --if-present
+
+      - name: Build
         run: npm run build
