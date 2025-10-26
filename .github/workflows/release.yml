@@ -33,7 +33,10 @@ jobs:
         with:
           node-version: 22
           registry-url: https://registry.npmjs.org/
-
+      - name: Set up Git user (triggering actor)
+        run: |
+          git config --global user.name "${{ github.actor }}"
+          git config --global user.email "${{ github.event.sender.id }}+${{ github.actor }}@users.noreply.github.com"
       - run: npm install -g npm@latest
       - run: npm ci
       - run: npm run release --ci ${{ github.event.inputs.version && format('--increment={0}', github.event.inputs.version) || '' }}
