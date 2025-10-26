@@ -12,8 +12,10 @@
   "npm": {
     "publish": true,
     "publishConfig": {
-      "provenance": true
-    }
+      "provenance": true,
+      "access": "public"
+    },
+    "skipChecks": true
   },
   "hooks": {
     "before:init": ["npm run lint", "npm run build"]

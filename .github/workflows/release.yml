@@ -33,8 +33,9 @@ jobs:
         with:
           node-version: 22
           registry-url: https://registry.npmjs.org/
-      
+
+      - run: npm install -g npm@latest
       - run: npm ci
       - run: npm run release --ci ${{ github.event.inputs.version && format('--increment={0}', github.event.inputs.version) || '' }}
         env:
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
