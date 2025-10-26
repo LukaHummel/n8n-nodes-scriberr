@@ -11,8 +11,9 @@
     "requireBranch": "main"
   },
   "npm": {
-    "publish": true,
+    "publish": false,
     "skipChecks": true,
+    "ignoreVersion": true,
     "publishConfig": {
       "provenance": true
     }
