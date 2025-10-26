@@ -1,8 +1,7 @@
 {
   "github": {
     "release": true,
-    "releaseName": "Release ${version}",
-    "releaseNotes": null
+    "releaseName": "Release ${version}"
   },
   "git": {
     "commitMessage": "Release ${version}",
@@ -11,15 +10,12 @@
     "requireBranch": "main"
   },
   "npm": {
-    "publish": false,
-    "skipChecks": true,
-    "ignoreVersion": true,
+    "publish": true,
     "publishConfig": {
       "provenance": true
     }
   },
   "hooks": {
-    "before:init": ["npm run lint", "npm run build"],
-    "after:bump": "npm run build"
+    "before:init": ["npm run lint", "npm run build"]
   }
 }
